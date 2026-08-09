@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
-
-const ambientBg = "/src/assets/images/ambient_office_bg_1782925752684.jpg";
+import ambientBg from "./assets/images/landing_background.webp";
 
 export default function App() {
   return (

@@ -35,8 +35,8 @@ import {
 import { ServiceDetail } from "../types";
 
 // Premium generated image assets
-const ambientBg = "/src/assets/images/ambient_office_bg_1782925752684.jpg";
-const premiumWorkspace = "/src/assets/images/premium_workspace_1782674911953.jpg";
+import ambientBg from "../assets/images/landing_background.webp";
+import ourMissionImg from "../assets/images/our_mission_image.jpg";
 
 export default function LandingPage() {
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
@@ -212,7 +212,7 @@ export default function LandingPage() {
                 {/* Main Image Frame */}
                 <div className="relative overflow-hidden rounded-2xl border-2 border-teal-400 bg-white p-2 shadow-xl">
                   <img 
-                    src={premiumWorkspace} 
+                    src={ourMissionImg} 
                     alt="Forge Premium Office Ambience" 
                     className="w-full h-auto rounded-xl object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.01]"
                     referrerPolicy="no-referrer"
