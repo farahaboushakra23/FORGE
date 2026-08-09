@@ -1,4 +1,5 @@
 import React from "react";
+import logoImg from "../assets/images/logo.png";
 
 export default function Header() {
   return (
@@ -9,10 +10,9 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/40 overflow-hidden shadow-xs border border-teal-500/30">
             <img 
-              src="https://lh3.googleusercontent.com/d/1jvrl78YfNwVy7m-OLK3wopOkARSb_jVx" 
+              src={logoImg} 
               alt="Forge Logo" 
               className="h-full w-full object-contain p-1"
-              referrerPolicy="no-referrer"
             />
           </div>
           <div>

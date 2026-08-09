@@ -35,7 +35,7 @@ import {
 import { ServiceDetail } from "../types";
 
 // Premium generated image assets
-import ambientBg from "../assets/images/landing_background.webp";
+import ambientBg from "../assets/images/landing_background_1080p.jpg";
 import ourMissionImg from "../assets/images/our_mission_image.jpg";
 
 export default function LandingPage() {
@@ -82,10 +82,9 @@ export default function LandingPage() {
             src={ambientBg} 
             alt="Forge Luxury Headquarters" 
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
           {/* Subtle soft gradient overlay so text remains readable while office background shines through */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-white/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/40" />
         </div>
 
         {/* Top Spacer */}
@@ -214,7 +213,6 @@ export default function LandingPage() {
                     src={ourMissionImg} 
                     alt="Forge Premium Office Ambience" 
                     className="w-full h-auto rounded-xl object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.01]"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-lg border border-teal-400 text-black flex items-center justify-between">
                     <div>
