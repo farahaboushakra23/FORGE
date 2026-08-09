@@ -1,0 +1,6 @@
+{
+  "name": "Forge Outsourcing Solutions",
+  "description": "Collaborative outsourcing proposal and strategic workspace for Forge Outsourcing Solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
