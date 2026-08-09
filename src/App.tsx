@@ -11,8 +11,8 @@ export default function App() {
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${ambientBg})` }}
       />
-      {/* Luminous Bright Mirroring Overlay */}
-      <div className="fixed inset-0 -z-10 bg-slate-50/85 backdrop-blur-[2px]" />
+      {/* Luminous Bright Mirroring Overlay (subtle transparency so the office background is clearly visible) */}
+      <div className="fixed inset-0 -z-10 bg-white/30 backdrop-blur-[1px]" />
 
       {/* Dynamic Header */}
       <Header />

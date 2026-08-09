@@ -84,9 +84,8 @@ export default function LandingPage() {
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          {/* Luminous bright sunset/daylight glass-like gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/85 via-[#FAF8F5]/45 to-[#FAF8F5]/90" />
-          <div className="absolute inset-0 bg-radial-[at_center] from-teal-200/20 via-transparent to-transparent opacity-90" />
+          {/* Subtle soft gradient overlay so text remains readable while office background shines through */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-white/50" />
         </div>
 
         {/* Top Spacer */}
