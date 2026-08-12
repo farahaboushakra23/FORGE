@@ -184,13 +184,6 @@ export default function LandingPage() {
                     alt="Forge Premium Office Ambience" 
                     className="w-full h-auto rounded-xl object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.01]"
                   />
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-lg border border-teal-400 text-black flex items-center justify-between shadow-md">
-                    <div>
-                      <span className="text-xs font-extrabold tracking-widest uppercase text-teal-700">Ambience Showcase</span>
-                      <p className="text-sm font-black text-black">Forge Operations Hub & Tech Suite</p>
-                    </div>
-                    <span className="text-xs font-mono font-bold text-teal-700 bg-teal-100 px-2.5 py-1 rounded">Active</span>
-                  </div>
                 </div>
               </div>
             </div>
