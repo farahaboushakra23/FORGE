@@ -11,8 +11,8 @@ export default function App() {
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat pointer-events-none"
         style={{ backgroundImage: `url(${ambientBg})` }}
       />
-      {/* Soft translucent overlay so the office background remains crisp and visible */}
-      <div className="fixed inset-0 -z-10 bg-white/20 backdrop-blur-[1px] pointer-events-none" />
+      {/* Translucent overlay with heavy blur effect for rich depth */}
+      <div className="fixed inset-0 -z-10 bg-white/45 backdrop-blur-[24px] pointer-events-none" />
 
       {/* Dynamic Header */}
       <Header />

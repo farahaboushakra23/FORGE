@@ -75,32 +75,22 @@ export default function LandingPage() {
     <div className="space-y-24 pb-24">
       
       {/* 1. Immersive Luxury Hero Section */}
-      <section className="relative overflow-hidden min-h-[90vh] flex flex-col justify-between py-16 px-4">
-        {/* Immersive background image with luxury bright/luminous overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={ambientBg} 
-            alt="Forge Luxury Headquarters" 
-            className="w-full h-full object-cover"
-          />
-          {/* Subtle soft gradient overlay so text remains readable while office background shines through */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/40" />
-        </div>
-
-        {/* Top Spacer */}
-        <div className="relative z-10 w-full" />
-
+      <section className="relative flex flex-col justify-between py-16 px-4">
         {/* Central Hero Branding & Content */}
         <div className="relative z-10 mx-auto max-w-5xl flex flex-col items-center justify-center text-center my-auto py-8">
           
           {/* Main Massive Brand Header */}
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-black drop-shadow-xs">
-            FORGE
+          <h1 className="font-forge-brand text-6xl sm:text-8xl lg:text-9xl font-black text-black my-2 select-none inline-flex items-center">
+            <span>F</span>
+            <span className="ml-[0.06em]">O</span>
+            <span className="ml-[0.06em] -mr-[0.04em]">R</span>
+            <span>G</span>
+            <span className="ml-[0.06em]">E</span>
           </h1>
 
           {/* Hero Statement */}
-          <div className="mt-6 max-w-3xl space-y-3">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-black tracking-tight leading-snug">
+          <div className="mt-6 max-w-4xl space-y-3">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-black tracking-tight leading-snug">
               Forge is a System Builder, A People Manager &amp; A Problem Solver
             </p>
           </div>
@@ -109,93 +99,73 @@ export default function LandingPage() {
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center">
             <button
               onClick={() => setIsContactOpen(true)}
-              className="w-full sm:w-auto bg-black hover:bg-teal-600 text-white font-display font-bold px-8 py-4 tracking-[0.15em] text-xs uppercase shadow-lg transition-all hover:scale-[1.03] active:scale-[0.97] cursor-pointer flex items-center justify-center gap-2 rounded-xl"
+              className="w-full sm:w-auto bg-black hover:bg-teal-600 text-white font-display font-black px-9 py-4.5 tracking-[0.15em] text-sm uppercase shadow-xl transition-all hover:scale-[1.03] active:scale-[0.97] cursor-pointer flex items-center justify-center gap-2 rounded-xl"
             >
               Inquire Now
-              <ArrowRight className="h-4 w-4 stroke-[2.5]" />
+              <ArrowRight className="h-5 w-5 stroke-[2.5]" />
             </button>
             <button 
               onClick={() => setIsContactOpen(true)}
-              className="w-full sm:w-auto bg-white/90 hover:bg-white text-black border-2 border-teal-400 font-display font-bold px-8 py-4 tracking-[0.15em] text-xs uppercase shadow-md transition-all hover:scale-[1.03] active:scale-[0.97] cursor-pointer rounded-xl backdrop-blur-md"
+              className="w-full sm:w-auto bg-white/95 hover:bg-white text-black border-2 border-teal-500 font-display font-black px-9 py-4.5 tracking-[0.15em] text-sm uppercase shadow-lg transition-all hover:scale-[1.03] active:scale-[0.97] cursor-pointer rounded-xl backdrop-blur-md"
             >
               Consult Our Experts
             </button>
           </div>
 
-          {/* Hero Feature Highlights Row - Enriching the hero section so it feels complete & dynamic */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
-            <div className="bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md border-2 border-teal-400 rounded-2xl p-4 text-center shadow-md hover:border-teal-500 hover:shadow-lg transition-all">
-              <span className="block text-xs font-bold uppercase tracking-wider text-teal-700">01 / Systems</span>
-              <p className="text-xs font-black text-black mt-1">End-to-End Operational Architecture</p>
-            </div>
-            <div className="bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md border-2 border-teal-400 rounded-2xl p-4 text-center shadow-md hover:border-teal-500 hover:shadow-lg transition-all">
-              <span className="block text-xs font-bold uppercase tracking-wider text-teal-700">02 / People</span>
-              <p className="text-xs font-black text-black mt-1">Global Talent & Management Pipelines</p>
-            </div>
-            <div className="bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md border-2 border-teal-400 rounded-2xl p-4 text-center shadow-md hover:border-teal-500 hover:shadow-lg transition-all">
-              <span className="block text-xs font-bold uppercase tracking-wider text-teal-700">03 / Solutions</span>
-              <p className="text-xs font-black text-black mt-1">Custom Business Process Outsourcing</p>
-            </div>
+          {/* Promise Cards placed directly in Hero section replacing previous highlight boxes */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl">
+            {PROMISES.map((promise, idx) => {
+              const colors = [
+                { bg: "bg-gradient-to-br from-white/90 via-teal-50/90 to-teal-100/80 backdrop-blur-md", border: "border-2 border-teal-400 shadow-lg", text: "text-teal-700", count: "01" },
+                { bg: "bg-gradient-to-br from-white/90 via-teal-50/90 to-teal-100/80 backdrop-blur-md", border: "border-2 border-teal-400 shadow-lg", text: "text-teal-700", count: "02" },
+                { bg: "bg-gradient-to-br from-white/90 via-teal-50/90 to-teal-100/80 backdrop-blur-md", border: "border-2 border-teal-400 shadow-lg", text: "text-teal-700", count: "03" }
+              ][idx % 3];
+              
+              return (
+                <div 
+                  key={idx}
+                  className={`relative overflow-hidden rounded-2xl border ${colors.border} ${colors.bg} p-6 text-left shadow-xl transition-all hover:-translate-y-1`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-3xl font-black font-display ${colors.text}`}>
+                      {colors.count}
+                    </span>
+                    <CheckCircle2 className={`h-6 w-6 ${colors.text}`} />
+                  </div>
+                  <p className="text-base sm:text-lg font-black text-black leading-relaxed">
+                    {promise.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
-        </div>
-
-
-      </section>
-
-      {/* Promises floating banner directly below Hero */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 max-w-5xl mx-auto">
-          {PROMISES.map((promise, idx) => {
-            const colors = [
-              { bg: "bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md", border: "border-2 border-teal-400 shadow-lg", text: "text-teal-600", count: "01" },
-              { bg: "bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md", border: "border-2 border-teal-400 shadow-lg", text: "text-teal-600", count: "02" },
-              { bg: "bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md", border: "border-2 border-teal-400 shadow-lg", text: "text-teal-600", count: "03" }
-            ][idx % 3];
-            
-            return (
-              <div 
-                key={idx}
-                className={`relative overflow-hidden rounded-2xl border ${colors.border} ${colors.bg} p-6 text-left shadow-xl transition-all hover:-translate-y-1`}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`text-2xl font-black font-display opacity-85 ${colors.text}`}>
-                    {colors.count}
-                  </span>
-                  <CheckCircle2 className={`h-5 w-5 ${colors.text}`} />
-                </div>
-                <p className="text-sm font-black text-black leading-relaxed">
-                  {promise.text}
-                </p>
-              </div>
-            );
-          })}
         </div>
       </section>
 
       {/* 2. Our Mission & Corporate Ambience Section */}
-      <section className="bg-white/40 backdrop-blur-md py-20 border-y border-teal-500/10">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left: Beautiful Typography of Our Mission */}
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Global Infrastructure</span>
-                <h2 className="font-display text-3xl font-black tracking-tight text-black sm:text-4xl">
+                <span className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">Global Infrastructure</span>
+                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black">
                   Our Mission
                 </h2>
-                <div className="h-1 w-12 bg-teal-400 rounded-full" />
+                <div className="h-1.5 w-16 bg-teal-500 rounded-full" />
               </div>
               
-              <div className="text-black text-sm sm:text-base leading-relaxed space-y-4 font-semibold">
+              <div className="text-black text-base sm:text-lg lg:text-xl leading-relaxed space-y-4 font-bold">
                 <p>
-                  At <span className="font-black text-black">Forge</span>, we are dedicated to empowering businesses across the globe through our specialized Business Process Outsourcing (BPO) services.
+                  At <span className="font-black text-black underline decoration-teal-400 decoration-2">Forge</span>, we are dedicated to empowering businesses across the globe through our specialized Business Process Outsourcing (BPO) services.
                 </p>
                 <p>
                   Our expertise assists partners in scaling their operations, expanding their teams, and enhancing their sales funnels by providing highly skilled professionals with industry-specific backgrounds.
                 </p>
-                <p className="text-black font-bold italic bg-teal-50/20 border-l-2 border-teal-400 p-3 rounded-r-xl">
+                <p className="text-black font-extrabold italic bg-teal-50/50 border-l-4 border-teal-500 p-4 rounded-r-xl shadow-xs">
                   Our talented workforce enables seamless integration with businesses in any sector, ensuring tailored solutions that drive success.
                 </p>
               </div>
@@ -205,7 +175,7 @@ export default function LandingPage() {
             <div className="lg:col-span-6">
               <div className="relative group">
                 {/* Visual shadow glow */}
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-teal-500/15 to-teal-600/15 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000" />
+                <div className="absolute -inset-1.5 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000" />
                 
                 {/* Main Image Frame */}
                 <div className="relative overflow-hidden rounded-2xl border-2 border-teal-400 bg-white p-2 shadow-xl">
@@ -214,12 +184,12 @@ export default function LandingPage() {
                     alt="Forge Premium Office Ambience" 
                     className="w-full h-auto rounded-xl object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.01]"
                   />
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-lg border border-teal-400 text-black flex items-center justify-between">
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-lg border border-teal-400 text-black flex items-center justify-between shadow-md">
                     <div>
-                      <span className="text-[10px] font-bold tracking-widest uppercase text-teal-600">Ambience Showcase</span>
-                      <p className="text-xs font-bold text-black">Forge Operations Hub & Tech Suite</p>
+                      <span className="text-xs font-extrabold tracking-widest uppercase text-teal-700">Ambience Showcase</span>
+                      <p className="text-sm font-black text-black">Forge Operations Hub & Tech Suite</p>
                     </div>
-                    <span className="text-[10px] font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Active</span>
+                    <span className="text-xs font-mono font-bold text-teal-700 bg-teal-100 px-2.5 py-1 rounded">Active</span>
                   </div>
                 </div>
               </div>
@@ -232,27 +202,27 @@ export default function LandingPage() {
       {/* 3. Our Services Interactive Section */}
       <section id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center">
-          <h2 className="mt-2 font-display text-3xl font-black tracking-tight text-black sm:text-4xl">
+          <h2 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black">
             Our Services
           </h2>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES_DATA.map((service, idx) => {
-            const backgroundColors = "bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 border-2 border-teal-400";
-            const iconColors = "text-teal-600";
+            const backgroundColors = "bg-gradient-to-br from-white via-teal-50/80 to-teal-100/70 border-2 border-teal-400";
+            const iconColors = "text-teal-700";
 
             return (
               <div
                 key={idx}
-                className={`group rounded-2xl border p-6 shadow-xs transition-all duration-300 hover:shadow-md ${backgroundColors}`}
+                className={`group rounded-2xl border p-6 shadow-sm transition-all duration-300 hover:shadow-md ${backgroundColors}`}
               >
                 <div className="flex items-center gap-4">
-                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white border border-teal-400 shadow-xs ${iconColors}`}>
-                    {renderIcon(service.iconName, "h-5 w-5 stroke-[2.2]")}
+                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white border-2 border-teal-400 shadow-xs ${iconColors}`}>
+                    {renderIcon(service.iconName, "h-6 w-6 stroke-[2.5]")}
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-black group-hover:text-teal-600 transition-colors">
+                    <h3 className="font-display font-black text-black text-lg sm:text-xl group-hover:text-teal-700 transition-colors">
                       {service.title}
                     </h3>
                   </div>
@@ -266,11 +236,11 @@ export default function LandingPage() {
       {/* 4. Industries We Serve Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Sectors & Adaptations</span>
-          <h2 className="mt-2 font-display text-3xl font-black tracking-tight text-black sm:text-4xl">
+          <span className="text-sm font-black uppercase tracking-widest text-teal-700">Sectors & Adaptations</span>
+          <h2 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black">
             Industries We Serve
           </h2>
-          <p className="mt-3 text-black max-w-2xl mx-auto text-sm sm:text-md font-semibold">
+          <p className="mt-4 text-black max-w-3xl mx-auto text-base sm:text-lg lg:text-xl font-bold">
             Seamless cross-sector integration. Our workforce holds industry-specific credentials and deep pipeline literacy.
           </p>
         </div>
@@ -280,9 +250,9 @@ export default function LandingPage() {
           {INDUSTRIES_DATA.map((ind, idx) => (
             <div
               key={idx}
-              className="rounded-2xl border-2 border-teal-400 p-8 shadow-xs hover:shadow-md transition-all duration-300 flex items-center justify-center text-center bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60"
+              className="rounded-2xl border-2 border-teal-400 p-8 shadow-xs hover:shadow-md transition-all duration-300 flex items-center justify-center text-center bg-gradient-to-br from-white via-teal-50/80 to-teal-100/70"
             >
-              <h3 className="text-base font-bold tracking-wider uppercase text-black">
+              <h3 className="text-lg sm:text-xl font-black tracking-wider uppercase text-black">
                 {ind.name}
               </h3>
             </div>
@@ -291,7 +261,7 @@ export default function LandingPage() {
       </section>
 
       {/* 5. Our Approach (Process) & Systems */}
-      <section className="bg-white/40 backdrop-blur-md py-20 border-y border-teal-500/10">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -299,25 +269,25 @@ export default function LandingPage() {
             {/* Our Approach (PDF content with beautiful turquoise/black design) */}
             <div className="space-y-8">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Operational Philosophy</span>
-                <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-black">
+                <span className="text-sm font-black uppercase tracking-widest text-teal-700">Operational Philosophy</span>
+                <h2 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black">
                   Our Approach
                 </h2>
-                <p className="mt-3 text-sm text-black font-semibold">
+                <p className="mt-3 text-base sm:text-lg text-black font-bold">
                   We match people, technology, and robust management to deliver outcomes that shape the future.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {APPROACH_DATA.map((approach, idx) => {
-                  const colors = "bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 border-2 border-teal-400 text-black";
+                  const colors = "bg-gradient-to-br from-white via-teal-50/80 to-teal-100/70 border-2 border-teal-400 text-black";
                   return (
-                    <div key={idx} className={`rounded-2xl border p-5 ${colors}`}>
-                      <h3 className="font-display font-bold text-black mb-2">
+                    <div key={idx} className={`rounded-2xl border p-6 ${colors}`}>
+                      <h3 className="font-display text-lg sm:text-xl font-black text-black mb-2">
                         {approach.title}
                       </h3>
                       {approach.description && (
-                        <p className="text-xs text-black leading-relaxed font-bold">
+                        <p className="text-sm sm:text-base text-black leading-relaxed font-bold">
                           {approach.description}
                         </p>
                       )}
@@ -328,33 +298,33 @@ export default function LandingPage() {
             </div>
 
             {/* Technology & Systems (PDF items) */}
-            <div className="rounded-3xl border-2 border-teal-400 bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 backdrop-blur-md p-6 shadow-xs flex flex-col justify-between">
+            <div className="rounded-3xl border-2 border-teal-400 bg-gradient-to-br from-white via-teal-50/80 to-teal-100/70 backdrop-blur-md p-8 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-50 text-teal-600 border border-teal-400">
-                    <Cpu className="h-4 w-4" />
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-100 text-teal-700 border border-teal-400">
+                    <Cpu className="h-5 w-5 stroke-[2.2]" />
                   </div>
-                  <h3 className="font-display text-lg font-bold text-black">
+                  <h3 className="font-display text-2xl font-black text-black">
                     Technology & Systems
                   </h3>
                 </div>
 
-                <div className="space-y-4 mt-4">
+                <div className="space-y-5 mt-4">
                   {TECHNOLOGY_DATA.map((tech, idx) => {
                     const icons = [
-                      <Sliders className="h-4 w-4" />,
-                      <Activity className="h-4 w-4" />,
-                      <VolumeX className="h-4 w-4" />,
-                      <Lock className="h-4 w-4" />,
-                      <Gauge className="h-4 w-4" />
+                      <Sliders className="h-5 w-5" />,
+                      <Activity className="h-5 w-5" />,
+                      <VolumeX className="h-5 w-5" />,
+                      <Lock className="h-5 w-5" />,
+                      <Gauge className="h-5 w-5" />
                     ];
                     return (
-                      <div key={idx} className="flex gap-3 items-start">
-                        <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-teal-55 text-teal-600">
+                      <div key={idx} className="flex gap-4 items-start">
+                        <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-teal-100 text-teal-700 font-bold border border-teal-300">
                           {icons[idx % icons.length]}
                         </div>
                         <div>
-                          <h4 className="text-xs font-bold text-black">
+                          <h4 className="text-base sm:text-lg font-black text-black">
                             {tech.system}
                           </h4>
                         </div>
@@ -373,24 +343,24 @@ export default function LandingPage() {
       {/* 6. Why Choose Forge Table/Grid */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Market Differentiation</span>
-          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-black sm:text-4xl">
+          <span className="text-sm font-black uppercase tracking-widest text-teal-700">Market Differentiation</span>
+          <h2 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black">
             Why Choose Forge?
           </h2>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {WHY_CHOOSE_FORGE.map((why, idx) => {
-            const backgroundColors = "bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 border-2 border-teal-400 text-black";
+            const backgroundColors = "bg-gradient-to-br from-white via-teal-50/80 to-teal-100/70 border-2 border-teal-400 text-black";
             
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border p-5 shadow-2xs flex flex-col justify-between ${backgroundColors}`}
+                className={`rounded-2xl border p-6 shadow-xs flex flex-col justify-between ${backgroundColors}`}
               >
                 <div>
-                  <Award className="h-5 w-5 mb-4 text-teal-600 opacity-85" />
-                  <h3 className="font-display font-bold text-black text-sm">
+                  <Award className="h-6 w-6 mb-4 text-teal-700 stroke-[2.2]" />
+                  <h3 className="font-display font-black text-black text-base sm:text-lg">
                     {why.title}
                   </h3>
                 </div>
@@ -401,15 +371,15 @@ export default function LandingPage() {
       </section>
 
       {/* 7. Centered Motto Focus Panel */}
-      <section className="mx-auto max-w-4xl px-4 text-center">
-        <div className="rounded-3xl bg-gradient-to-br from-white via-teal-50/70 to-teal-100/60 p-8 sm:p-12 border-2 border-teal-400 shadow-xl relative">
-          <blockquote className="font-display text-xl sm:text-3xl font-black italic tracking-tight text-black leading-relaxed">
+      <section className="mx-auto max-w-5xl px-4 text-center">
+        <div className="rounded-3xl bg-gradient-to-br from-white via-teal-50/90 to-teal-100/80 p-10 sm:p-14 border-2 border-teal-400 shadow-xl relative backdrop-blur-md">
+          <blockquote className="font-display text-2xl sm:text-4xl lg:text-5xl font-black italic tracking-tight text-black leading-snug">
             "Your Vision, Our Expertise; Together we Forge"
           </blockquote>
-          <div className="mt-6 flex justify-center gap-1.5">
-            <span className="h-1.5 w-6 rounded-full bg-teal-400" />
-            <span className="h-1.5 w-1.5 rounded-full bg-black" />
-            <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+          <div className="mt-8 flex justify-center gap-2">
+            <span className="h-2 w-8 rounded-full bg-teal-500" />
+            <span className="h-2 w-2 rounded-full bg-black" />
+            <span className="h-2 w-8 rounded-full bg-teal-500" />
           </div>
         </div>
       </section>
