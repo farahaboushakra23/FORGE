@@ -36,7 +36,7 @@ import { ServiceDetail } from "../types";
 
 // Premium generated image assets
 import ambientBg from "../assets/images/landing_background_1080p.jpg";
-import ourMissionImg from "../assets/images/our_mission_image.jpg";
+import ourMissionImg from "../assets/images/our_mission_workspace_1786528733182.jpg";
 
 export default function LandingPage() {
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
