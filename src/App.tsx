@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
-import ambientBg from "./assets/images/landing_background_1080p.jpg";
+import ambientBg from "./assets/images/office_blur_bg_1786528322990.jpg";
 
 export default function App() {
   return (
@@ -11,8 +11,8 @@ export default function App() {
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat pointer-events-none"
         style={{ backgroundImage: `url(${ambientBg})` }}
       />
-      {/* Translucent overlay with heavy blur effect for rich depth */}
-      <div className="fixed inset-0 -z-10 bg-white/45 backdrop-blur-[24px] pointer-events-none" />
+      {/* Subtle overlay with gentle blur effect so the office background remains crisp and visible */}
+      <div className="fixed inset-0 -z-10 bg-white/30 backdrop-blur-[6px] pointer-events-none" />
 
       {/* Dynamic Header */}
       <Header />
