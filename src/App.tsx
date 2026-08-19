@@ -33,10 +33,10 @@ export default function App() {
           <p className="text-xs text-slate-600 font-semibold">
             Inquiries:{" "}
             <a 
-              href="mailto:info@forge.com" 
+              href="mailto:info@forgeoutsourcing.com" 
               className="text-[#005b94] hover:text-black font-bold underline transition-colors"
             >
-              info@forge.com
+              info@forgeoutsourcing.com
             </a>
           </p>
           <p className="text-xs text-slate-500 font-medium">

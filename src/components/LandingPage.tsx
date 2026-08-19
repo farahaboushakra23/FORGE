@@ -485,10 +485,10 @@ export default function LandingPage({
                   <p className="text-xs text-slate-700 font-medium">
                     Or email us directly at{" "}
                     <a 
-                      href="mailto:info@forge.com" 
+                      href="mailto:info@forgeoutsourcing.com" 
                       className="font-bold text-[#005b94] underline hover:text-black transition-colors"
                     >
-                      info@forge.com
+                      info@forgeoutsourcing.com
                     </a>
                   </p>
                 </div>
