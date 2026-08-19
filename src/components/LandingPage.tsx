@@ -37,14 +37,26 @@ import { ServiceDetail } from "../types";
 // Premium generated image assets
 import ambientBg from "../assets/images/landing_background_1080p.jpg";
 import ourMissionImg from "../assets/images/our_mission_workspace_1786528733182.jpg";
+import logoImg from "../assets/images/forge_logo_custom.png";
 
-export default function LandingPage() {
+interface LandingPageProps {
+  isContactOpen?: boolean;
+  setIsContactOpen?: (open: boolean) => void;
+}
+
+export default function LandingPage({ 
+  isContactOpen: controlledContactOpen, 
+  setIsContactOpen: setControlledContactOpen 
+}: LandingPageProps) {
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
-  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [internalContactOpen, setInternalContactOpen] = useState(false);
   const [contactName, setContactName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const isContactOpen = controlledContactOpen !== undefined ? controlledContactOpen : internalContactOpen;
+  const setIsContactOpen = setControlledContactOpen || setInternalContactOpen;
 
   // Helper to resolve string icon name to lucide icon component
   const renderIcon = (name: string, className: string = "h-6 w-6") => {
@@ -79,14 +91,14 @@ export default function LandingPage() {
         {/* Central Hero Branding & Content */}
         <div className="relative z-10 mx-auto max-w-5xl flex flex-col items-center justify-center text-center my-auto py-8">
           
-          {/* Main Massive Brand Header */}
-          <h1 className="font-forge-brand text-6xl sm:text-8xl lg:text-9xl font-black text-black my-2 select-none inline-flex items-center">
-            <span>F</span>
-            <span className="ml-[0.06em]">O</span>
-            <span className="ml-[0.06em] -mr-[0.04em]">R</span>
-            <span>G</span>
-            <span className="ml-[0.06em]">E</span>
-          </h1>
+          {/* Main Brand Logo */}
+          <div className="my-4 flex items-center justify-center">
+            <img 
+              src={logoImg} 
+              alt="Forge Logo" 
+              className="h-20 sm:h-28 md:h-36 lg:h-40 w-auto max-w-full object-contain select-none transition-transform hover:scale-[1.02]"
+            />
+          </div>
 
           {/* Hero Statement */}
           <div className="mt-6 max-w-4xl space-y-3">
@@ -227,7 +239,7 @@ export default function LandingPage() {
       </section>
 
       {/* 4. Industries We Serve Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section id="industries" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="text-center">
           <span className="text-sm font-black uppercase tracking-widest text-teal-700">Sectors & Adaptations</span>
           <h2 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black">
@@ -254,7 +266,7 @@ export default function LandingPage() {
       </section>
 
       {/* 5. Our Approach (Process) & Systems */}
-      <section className="py-16">
+      <section id="tech-systems" className="py-16 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -366,8 +378,9 @@ export default function LandingPage() {
       {/* 7. Centered Motto Focus Panel */}
       <section className="mx-auto max-w-5xl px-4 text-center">
         <div className="rounded-3xl bg-gradient-to-br from-white via-teal-50/90 to-teal-100/80 p-10 sm:p-14 border-2 border-teal-400 shadow-xl relative backdrop-blur-md">
-          <blockquote className="font-display text-2xl sm:text-4xl lg:text-5xl font-black italic tracking-tight text-black leading-snug">
-            "Your Vision, Our Expertise; Together we Forge"
+          <blockquote className="font-display text-2xl sm:text-4xl lg:text-5xl font-black italic tracking-tight text-black leading-snug space-y-2">
+            <span className="block">"Your Vision, Our Expertise"</span>
+            <span className="block">"Together We Forge"</span>
           </blockquote>
           <div className="mt-8 flex justify-center gap-2">
             <span className="h-2 w-8 rounded-full bg-teal-500" />
@@ -394,13 +407,10 @@ export default function LandingPage() {
             </button>
 
             <div className="relative text-center space-y-2 mb-6">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-teal-600">
-                Forge Luxury BPO Solutions
-              </span>
               <h3 className="font-display text-2xl font-black text-black">
                 Request a Strategic Consultation
               </h3>
-              <p className="text-xs text-slate-500 font-semibold max-w-md mx-auto">
+              <p className="text-xs text-slate-600 font-semibold max-w-md mx-auto">
                 Fill in your company details below and our lead outsourcing strategist will reach out within 2 business hours.
               </p>
             </div>
@@ -412,14 +422,14 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-1">
                   <p className="text-sm font-black text-black">Inquiry Submitted Successfully</p>
-                  <p className="text-xs text-slate-500 font-semibold">Thank you. Our luxury specialists are preparing your brief.</p>
+                  <p className="text-xs text-slate-600 font-semibold">Thank you. Our specialists are preparing your brief.</p>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleContactSubmit} className="relative space-y-4">
                 <div>
                   <label className="block text-[10px] font-bold text-black uppercase tracking-wider mb-1">
-                    Your Full Name / Company Rep
+                    Your Full Name / Company Name
                   </label>
                   <input
                     type="text"
@@ -427,7 +437,6 @@ export default function LandingPage() {
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     className="w-full rounded-xl border border-teal-300 bg-white/50 px-3 py-2.5 text-xs font-semibold text-black focus:border-teal-500 focus:outline-hidden focus:ring-3 focus:ring-teal-50 transition-all"
-                    placeholder="Farah (Client)"
                   />
                 </div>
 
@@ -441,7 +450,6 @@ export default function LandingPage() {
                     value={contactEmail}
                     onChange={(e) => setContactEmail(e.target.value)}
                     className="w-full rounded-xl border border-teal-300 bg-white/50 px-3 py-2.5 text-xs font-semibold text-black focus:border-teal-500 focus:outline-hidden focus:ring-3 focus:ring-teal-50 transition-all"
-                    placeholder="client@luxuryfirm.com"
                   />
                 </div>
 
@@ -455,7 +463,6 @@ export default function LandingPage() {
                     value={contactMessage}
                     onChange={(e) => setContactMessage(e.target.value)}
                     className="w-full rounded-xl border border-teal-300 bg-white/50 px-3 py-2.5 text-xs font-semibold text-black focus:border-teal-500 focus:outline-hidden focus:ring-3 focus:ring-teal-50 transition-all"
-                    placeholder="Briefly describe your team scaling needs, industry sector, or campaign scope..."
                   />
                 </div>
 
@@ -465,6 +472,19 @@ export default function LandingPage() {
                 >
                   Submit Brief
                 </button>
+
+                {/* Direct email info */}
+                <div className="pt-3 text-center border-t border-teal-200/60 mt-4">
+                  <p className="text-xs text-slate-700 font-medium">
+                    Or email us directly at{" "}
+                    <a 
+                      href="mailto:info@forge.com" 
+                      className="font-bold text-teal-800 underline hover:text-black transition-colors"
+                    >
+                      info@forge.com
+                    </a>
+                  </p>
+                </div>
               </form>
             )}
 
