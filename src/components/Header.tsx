@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FORGE_LOGO_SRC } from "../assets/logoData";
 import logoImg from "../assets/images/forge_logo_custom.png";
 import { Menu, X, PhoneCall } from "lucide-react";
 
@@ -37,8 +38,14 @@ export default function Header({ onOpenContact }: HeaderProps) {
         <div className="flex items-center">
           <a href="#" className="flex items-center" aria-label="Forge Home">
             <img 
-              src={logoImg} 
+              src={FORGE_LOGO_SRC || logoImg} 
               alt="Forge Logo" 
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (target.src !== logoImg) {
+                  target.src = logoImg;
+                }
+              }}
               className="h-10 sm:h-12 w-auto max-w-[180px] sm:max-w-[240px] object-contain transition-transform hover:scale-105"
             />
           </a>

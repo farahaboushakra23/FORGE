@@ -42,7 +42,7 @@ const COLLABORATOR_NAMES = [
 export default function CollaborativeWorkspace() {
   // Join Form State
   const [hasJoined, setHasJoined] = useState(false);
-  const [username, setUsername] = useState("Farah (Client)");
+  const [username, setUsername] = useState("Client Partner");
   const [userColor, setUserColor] = useState(COLLABORATOR_COLORS[0]);
 
   // Split-Screen Simulator Mode
@@ -441,7 +441,7 @@ export default function CollaborativeWorkspace() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm font-semibold text-slate-800 placeholder-slate-400 focus:border-purple-300 focus:bg-white focus:outline-hidden transition-all shadow-2xs"
-                placeholder="Farah (Client)"
+                placeholder="Your Name / Client ID"
               />
             </div>
 

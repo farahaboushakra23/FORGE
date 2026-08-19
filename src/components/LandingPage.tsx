@@ -37,6 +37,7 @@ import { ServiceDetail } from "../types";
 // Premium generated image assets
 import ambientBg from "../assets/images/landing_background_1080p.jpg";
 import ourMissionImg from "../assets/images/our_mission_workspace_1786528733182.jpg";
+import { FORGE_LOGO_SRC } from "../assets/logoData";
 import logoImg from "../assets/images/forge_logo_custom.png";
 
 interface LandingPageProps {
@@ -94,8 +95,14 @@ export default function LandingPage({
           {/* Main Brand Logo */}
           <div className="my-4 flex items-center justify-center">
             <img 
-              src={logoImg} 
+              src={FORGE_LOGO_SRC || logoImg} 
               alt="Forge Logo" 
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (target.src !== logoImg) {
+                  target.src = logoImg;
+                }
+              }}
               className="h-20 sm:h-28 md:h-36 lg:h-40 w-auto max-w-full object-contain select-none transition-transform hover:scale-[1.02]"
             />
           </div>
@@ -376,16 +383,16 @@ export default function LandingPage({
       </section>
 
       {/* 7. Centered Motto Focus Panel */}
-      <section className="mx-auto max-w-5xl px-4 text-center">
-        <div className="rounded-3xl bg-gradient-to-br from-white via-teal-50/90 to-teal-100/80 p-10 sm:p-14 border-2 border-teal-400 shadow-xl relative backdrop-blur-md">
-          <blockquote className="font-display text-2xl sm:text-4xl lg:text-5xl font-black italic tracking-tight text-black leading-snug space-y-2">
+      <section className="mx-auto max-w-2xl px-4 text-center">
+        <div className="rounded-2xl bg-gradient-to-br from-white via-teal-50/90 to-teal-100/80 py-6 px-6 sm:py-7 sm:px-10 border-2 border-teal-400 shadow-lg relative backdrop-blur-md">
+          <blockquote className="font-display text-xl sm:text-2xl lg:text-3xl font-black italic tracking-tight text-black leading-snug space-y-1.5">
             <span className="block">"Your Vision, Our Expertise"</span>
             <span className="block">"Together We Forge"</span>
           </blockquote>
-          <div className="mt-8 flex justify-center gap-2">
-            <span className="h-2 w-8 rounded-full bg-teal-500" />
-            <span className="h-2 w-2 rounded-full bg-black" />
-            <span className="h-2 w-8 rounded-full bg-teal-500" />
+          <div className="mt-4 flex justify-center gap-1.5">
+            <span className="h-1.5 w-6 rounded-full bg-teal-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-black" />
+            <span className="h-1.5 w-6 rounded-full bg-teal-500" />
           </div>
         </div>
       </section>
