@@ -98,9 +98,9 @@ export const INDUSTRIES_DATA: IndustryDetail[] = [
     name: "Retail & E-Commerce",
     description: "Cart abandonment follow-ups, order tracking helpdesk, and up-sell support.",
     additionalText: "Providing instant chat ticket resolution, processing returns, managing shipping status updates, and proactively engaging buyers to drive purchase frequency and average basket value.",
-    bgPastel: "bg-teal-50/70",
-    borderPastel: "border-teal-100",
-    textPastel: "text-teal-800"
+    bgPastel: "bg-blue-50/70",
+    borderPastel: "border-blue-100",
+    textPastel: "text-blue-900"
   }
 ];
 
