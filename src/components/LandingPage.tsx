@@ -16,7 +16,6 @@ import {
   FileText,
   BadgeAlert,
   Sliders,
-  Award,
   Users,
   Terminal,
   VolumeX,
@@ -368,14 +367,11 @@ export default function LandingPage({
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border p-6 shadow-xs flex flex-col justify-between ${backgroundColors}`}
+                className={`rounded-2xl border p-6 shadow-xs flex items-center justify-center text-center transition-all duration-300 hover:shadow-md min-h-[110px] ${backgroundColors}`}
               >
-                <div>
-                  <Award className="h-6 w-6 mb-4 text-[#005b94] stroke-[2.2]" />
-                  <h3 className="font-display font-black text-black text-base sm:text-lg">
-                    {why.title}
-                  </h3>
-                </div>
+                <h3 className="font-display font-black text-black text-base sm:text-lg">
+                  {why.title}
+                </h3>
               </div>
             );
           })}
@@ -386,8 +382,8 @@ export default function LandingPage({
       <section className="mx-auto max-w-2xl px-4 text-center">
         <div className="rounded-2xl bg-gradient-to-br from-white via-blue-50/90 to-[#005b94]/10 py-6 px-6 sm:py-7 sm:px-10 border-2 border-[#005b94]/40 shadow-lg relative backdrop-blur-md">
           <blockquote className="font-display text-xl sm:text-2xl lg:text-3xl font-black italic tracking-tight text-black leading-snug space-y-1.5">
-            <span className="block">"Your Vision, Our Expertise"</span>
-            <span className="block">"Together We Forge"</span>
+            <span className="block">"Your Vision Our Expertise;</span>
+            <span className="block">Together We Forge"</span>
           </blockquote>
           <div className="mt-4 flex justify-center gap-1.5">
             <span className="h-1.5 w-6 rounded-full bg-[#005b94]" />
